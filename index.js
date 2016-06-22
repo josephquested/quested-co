@@ -1,7 +1,14 @@
 var app = document.getElementById('app')
 var page = 'home'
 
-var changePage = function (newPage) {
+var links = Array.from(document.getElementsByClassName('nav-link'))
+for (key in Object.keys(links)) {
+  links[key].addEventListener("click", changePage)
+}
+
+ function changePage (e) {
+
+  console.log(e.target.innerHTML)
   emptyNode(app)
   page = newPage
 
@@ -15,7 +22,6 @@ var changePage = function (newPage) {
     case "games":
       renderContact()
       break
-    }
   }
 }
 
