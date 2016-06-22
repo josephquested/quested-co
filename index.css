@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+}
+
+span, a {
+  padding: 8px 20px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
