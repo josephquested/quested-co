@@ -7,11 +7,8 @@ for (key in Object.keys(links)) {
 }
 
  function changePage (e) {
-
-  console.log(e.target.innerHTML)
   emptyNode(app)
-  page = newPage
-
+  page = e.target.innerHTML
   switch (page) {
     case "home":
       renderHome()
@@ -19,26 +16,33 @@ for (key in Object.keys(links)) {
     case "games":
       renderGames()
       break
-    case "games":
+    case "contact":
       renderContact()
       break
   }
 }
 
-var emptyNode = function (node) {
+function appendNode (node, text) {
+  var p = document.createElement(node)
+  var textNode = document.createTextNode(text)
+  p.appendChild(textNode);
+  app.appendChild(p);
+}
+
+function emptyNode (node) {
   while (node.firstChild) {
-    node.removeChild(myNode.firstChild);
+    node.removeChild(node.firstChild);
   }
 }
 
-var renderHome = function () {
-  console.log('home!')
+function renderHome () {
+  appendNode('h2', 'home')
 }
 
-var renderGames = function () {
-  console.log('games!')
+function renderGames () {
+  appendNode('h2', 'games')
 }
 
-var renderHome = function () {
-  console.log('contact!')
+function renderContact () {
+  appendNode('h2', 'contact')
 }
