@@ -21,29 +21,40 @@ function changePage (e) {
   }
 }
 
-function appendNode (parent, node, text) {
+function appendNode (node, text) {
   var newNode = document.createElement(node)
   var textNode = document.createTextNode(text)
   newNode.appendChild(textNode);
-  parent.appendChild(newNode);
+  app.appendChild(newNode);
+}
+
+function appendLink (link, text) {
+  var a = document.createElement('a')
+  a.setAttribute('href', link);
+  a.innerHTML = text;
+  app.appendChild(a);
 }
 
 function emptyNode (node) {
   while (node.firstChild) {
-    node.removeChild(node.firstChild);
+    app.removeChild(node.firstChild);
   }
 }
 
+// page render
+
 function renderHome () {
-  appendNode(app, 'h2', 'home')
+  appendNode('h2', 'home')
+  appendNode('p', 'welcome to my webpage')
 }
 
 function renderGames () {
-  appendNode(app, 'h2', 'games')
+  appendNode('h2', 'games')
+  appendLink('http://quested-immune.herokuapp.com', 'immune')
 }
 
 function renderContact () {
-  appendNode(app, 'h2', 'contact')
-  appendNode(app, 'p', 'josephquested@gmail.com')
-  appendNode(app, 'p', '021647472')
+  appendNode('h2', 'contact')
+  appendNode('p', '021647472')
+  appendLink('mailto:josephquested@gmail.com', 'josephquested@gmail.com')
 }
