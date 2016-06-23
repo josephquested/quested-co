@@ -45,6 +45,7 @@ function emptyNode (node) {
 
 function renderHome () {
   appendNode('h2', 'home')
+  appendNode('p', 'welcome to my webpage')
 }
 
 function renderGames () {
@@ -55,5 +56,5 @@ function renderGames () {
 function renderContact () {
   appendNode('h2', 'contact')
   appendNode('p', '021647472')
-  appendNode('p', 'josephquested@gmail.com')
+  appendLink('mailto:josephquested@gmail.com', 'josephquested@gmail.com')
 }
