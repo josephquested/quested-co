@@ -1,15 +1,14 @@
 var app = document.getElementById('app')
-var page = 'home'
+changePage({target: {innerHTML: 'home'}})
 
-var links = Array.from(document.getElementsByClassName('nav-link'))
+var links = document.getElementsByClassName('nav-link')
 for (key in Object.keys(links)) {
   links[key].addEventListener("click", changePage)
 }
 
- function changePage (e) {
+function changePage (e) {
   emptyNode(app)
-  page = e.target.innerHTML
-  switch (page) {
+  switch (e.target.innerHTML) {
     case "home":
       renderHome()
       break
@@ -22,11 +21,11 @@ for (key in Object.keys(links)) {
   }
 }
 
-function appendNode (node, text) {
-  var p = document.createElement(node)
+function appendNode (parent, node, text) {
+  var newNode = document.createElement(node)
   var textNode = document.createTextNode(text)
-  p.appendChild(textNode);
-  app.appendChild(p);
+  newNode.appendChild(textNode);
+  parent.appendChild(newNode);
 }
 
 function emptyNode (node) {
@@ -36,13 +35,15 @@ function emptyNode (node) {
 }
 
 function renderHome () {
-  appendNode('h2', 'home')
+  appendNode(app, 'h2', 'home')
 }
 
 function renderGames () {
-  appendNode('h2', 'games')
+  appendNode(app, 'h2', 'games')
 }
 
 function renderContact () {
-  appendNode('h2', 'contact')
+  appendNode(app, 'h2', 'contact')
+  appendNode(app, 'p', 'josephquested@gmail.com')
+  appendNode(app, 'p', '021647472')
 }
